@@ -1,0 +1,26 @@
+{
+  "name": "electron-test",
+  "version": "1.0.0",
+  "description": "electron basic usage",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "electron": "electron out/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "electron"
+  ],
+  "author": "JC",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/electron": "^1.4.38",
+    "@types/node": "^22.10.1",
+    "electron": "^33.2.1",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "electron-test": "file:",
+    "nodemon": "^3.1.7"
+  }
+}
