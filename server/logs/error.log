@@ -1,0 +1,26 @@
+2024/08/02 10:57:07 [emerg] 13988#7012: unexpected "}" in D:\Angelp\www\Angular\pomodoro\server\nginx-1.24.0/conf/nginx.conf:46
+2024/08/02 13:54:33 [notice] 19672#17268: signal process started
+2024/08/02 14:48:17 [notice] 6064#16104: signal process started
+2024/12/05 12:10:32 [error] 14880#500: *1 directory index of "D:\Angelp\www\node\electron\electron-test/out/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/12/05 12:10:32 [error] 14880#500: *1 CreateFile() "D:\Angelp\www\node\electron\electron-test/outpages/index.html" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2024/12/05 12:11:02 [notice] 19064#15224: signal process started
+2024/12/05 12:11:04 [error] 3244#7444: *2 directory index of "D:\Angelp\www\node\electron\electron-test/out/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/12/05 12:11:06 [error] 3244#7444: *2 directory index of "D:\Angelp\www\node\electron\electron-test/out/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/12/05 12:11:06 [error] 3244#7444: *2 directory index of "D:\Angelp\www\node\electron\electron-test/out/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/12/05 12:11:11 [error] 3244#7444: *2 directory index of "D:\Angelp\www\node\electron\electron-test/out/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/12/05 12:11:27 [notice] 12184#16380: signal process started
+2024/12/05 12:11:29 [error] 18116#11948: *3 rewrite or internal redirection cycle while internally redirecting to "/pages/index.html", client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2024/12/05 12:11:35 [notice] 17896#5380: signal process started
+2024/12/05 12:11:36 [error] 13652#10776: *4 CreateFile() "D:\Angelp\www\node\electron\electron-test/out/pagesindex.html" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2024/12/05 12:11:37 [error] 13652#10776: *5 CreateFile() "D:\Angelp\www\node\electron\electron-test/out/pagesindex.html" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2024/12/05 12:12:04 [notice] 1196#6448: signal process started
+2024/12/05 12:16:00 [error] 7804#13688: *1 CreateFile() "D:\Angelp\www\node\electron\electron-test\server/../out/pagesindex.html" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2024/12/05 12:16:01 [error] 7804#13688: *2 CreateFile() "D:\Angelp\www\node\electron\electron-test\server/../out/pagesindex.html" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2024/12/05 12:16:01 [error] 7804#13688: *3 CreateFile() "D:\Angelp\www\node\electron\electron-test\server/../out/pagesindex.html" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2024/12/05 12:16:08 [notice] 6304#14616: signal process started
+2024/12/05 12:18:31 [error] 12664#13968: *4 CreateFile() "D:\Angelp\www\node\electron\electron-test\server/../out/pagesindex.html" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /about HTTP/1.1", host: "localhost"
+2024/12/05 12:18:44 [error] 12664#13968: *4 CreateFile() "D:\Angelp\www\node\electron\electron-test\server/../out/pagesindex.html" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /about HTTP/1.1", host: "localhost"
+2024/12/05 12:18:50 [notice] 11580#11256: signal process started
+2024/12/05 12:18:53 [error] 11820#15084: *5 CreateFile() "D:\Angelp\www\node\electron\electron-test\server/../out/pagesindex.html" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2024/12/05 12:19:04 [error] 11820#15084: *5 CreateFile() "D:\Angelp\www\node\electron\electron-test\server/../out/pagesindex.html" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /about HTTP/1.1", host: "localhost"
+2024/12/05 12:20:38 [notice] 18396#16600: signal process started
