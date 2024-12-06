@@ -12,7 +12,7 @@ class Index {
                     nodeIntegration: true
                 }
             });
-            mainWindow!.loadFile(path.join(__dirname,"pages/index.html"));
+            mainWindow!.loadFile(path.join(__dirname,"../app/index.html"));
 
             mainWindow!.on("closed", () => {
                 mainWindow = null;
@@ -34,7 +34,7 @@ class Index {
                         nodeIntegration: true
                     }
                 });
-                mainWindow!.loadFile(path.join(__dirname,"pages/index.html"));
+                mainWindow!.loadFile(path.join(__dirname,"../app/index.html"));
             }
         })
     }

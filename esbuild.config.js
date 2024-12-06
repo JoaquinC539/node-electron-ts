@@ -33,8 +33,8 @@ const transferFiles=(from,to)=>{
 }
 // Bundle the browser (renderer process)
 const bundleRender=esbuild.build({
-    entryPoints:["out/pages/scripts/index.js"],
-    outfile:'out/pages/bundle.js',
+    entryPoints:["out/app/index.js"],
+    outfile:'out/app/bundle.js',
     bundle:true,
     platform:"browser",
     target:"es2020",
@@ -43,8 +43,8 @@ const bundleRender=esbuild.build({
 });
 
 const bundleMain=esbuild.build({
-    entryPoints:["out/index.js"],
-    outfile:"out/index.bundle.js",
+    entryPoints:["out/node/index.js"],
+    outfile:"out/node/index.bundle.js",
     bundle:true,
     platform:"node",
     target:"node18",
@@ -59,14 +59,3 @@ Promise.all([bundleRender,bundleMain])
     console.log("Build complete.");
 })
 .catch(()=>process.exit(1))
-// esbuild.build({
-//     entryPoints:["out/pages/scripts/index.js"],
-//     outfile:'out/pages/bundle.js',
-//     bundle:true,
-//     platform:"browser",
-//     target:"es2020",
-//     sourcemap:false,
-//     minify:true,    
-// }).then(()=>{    
-//     transferFiles("./src","./out")
-// }).catch(()=>process.exit(1))

@@ -4,10 +4,13 @@
   "description": "electron basic usage",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && node esbuild.config.js",
+    "build": "npm run build:node && npm run build:app && node esbuild.config.js",
+    "build:node": "tsc --project tsconfig.node.json",
+    "build:app": "tsc --project tsconfig.app.json",
+    "build2": "tsc && node esbuild.config.js",
     "build1": "tsc && node esbuild.config.js",
     "build0": "tsc && node init.js",
-    "electron": "electron out/index.bundle.js",
+    "electron": "electron out/node/index.bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

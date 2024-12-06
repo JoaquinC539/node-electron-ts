@@ -1,4 +1,4 @@
-import { routes } from "./routes.js";
+import { routes } from "./routes";
 
 const rootDiv = document.getElementById('app')!;
 
@@ -7,11 +7,9 @@ export function checkInitialRoute(): string {
     const pathname=window.location.pathname;
     if(protocol==="file:"){
         return "/";
-    }else{
-       
+    }else{       
         const segments=pathname.split("/");  
-        const route = segments[segments.length-1]==="index.html" ? "/":pathname      
-        console.log(segments)
+        const route = segments[segments.length-1]==="index.html" ? "/":pathname 
         return route;
     }
     
@@ -30,7 +28,6 @@ export function setAnchorElements(): void {
 }
 
 export function renderRoute(path: string) {
-    console.log(window.location.pathname)
     const content: string | undefined | null = routes[path];
     if (content !== undefined && content !== null) {
         rootDiv!.innerHTML = content;

@@ -1,4 +1,4 @@
-import { checkInitialRoute,setAnchorElements,renderRoute } from "./router.js";
+import { checkInitialRoute,setAnchorElements,renderRoute } from "./router";
 
 
 document.addEventListener("DOMContentLoaded", () => {
