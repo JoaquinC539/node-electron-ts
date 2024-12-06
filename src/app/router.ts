@@ -27,8 +27,9 @@ export function setAnchorElements(): void {
     })
 }
 
-export function renderRoute(path: string) {
-    const content: string | undefined | null = routes[path];
+export async function renderRoute(path: string) {
+    const contentPromise=routes[path]
+    const content: string | undefined | null = await contentPromise;
     if (content !== undefined && content !== null) {
         rootDiv!.innerHTML = content;
         setAnchorElements();
@@ -36,5 +37,5 @@ export function renderRoute(path: string) {
     } else {
         rootDiv!.innerHTML = `<h1>404 - Page Not Found</h1>`
     }
-
 }
+

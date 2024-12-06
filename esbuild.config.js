@@ -1,6 +1,7 @@
 const path=require("path");
 const fs=require("fs")
 const esbuild=require("esbuild");
+const cheerio=require("cheerio")
 
 
 const createDir=(relPath)=>{
@@ -8,6 +9,8 @@ const createDir=(relPath)=>{
         fs.mkdirSync(relPath);
     }
 }
+
+
 const transferFiles=(from,to)=>{
     createDir(to);
     if(!fs.existsSync(from)){        
@@ -18,15 +21,16 @@ const transferFiles=(from,to)=>{
     const dirPath=path.join(__dirname,to)
     const files=fs.readdirSync(sp)    
     files.forEach((file)=>{
-        const fsp=file.split(".")
-        if(fsp[fsp.length-1]==="ts"){
-            return;
-        }        
         const spf=path.join(sp,file);
-        const dpf=path.join(dirPath,file)
+        const dpf=path.join(dirPath,file)     
+        if(file.endsWith(".ts")){
+            return;
+        }
+        
         if(!fs.lstatSync(spf).isDirectory()){
             fs.copyFileSync(spf,dpf);
         }else{
+            
             return transferFiles("./"+from+"/"+file,"./"+to+"/"+file+"/" )
         }  
     })    
@@ -49,7 +53,7 @@ const bundleMain=esbuild.build({
     platform:"node",
     target:"node18",
     sourcemap:false,
-    minify:false,
+    minify:true,
     external:["electron"]
 })
 
