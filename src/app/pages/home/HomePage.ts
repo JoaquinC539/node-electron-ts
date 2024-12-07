@@ -1,5 +1,5 @@
 
-import template  from './home'
+import template from "./home"
 class HomePage extends HTMLElement {
     constructor() {
         super();
