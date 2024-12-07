@@ -1,5 +1,5 @@
 
-import content from './home'
+import content from './home.html'
 class HomePage extends HTMLElement {
     constructor() {
         super();
