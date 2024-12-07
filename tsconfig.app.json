@@ -4,7 +4,14 @@
         "module": "ESNext",
         "outDir": "./out/app",
         "allowJs": true,
-        "moduleResolution": "node"
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "paths": {
+            "*.html": ["./out/app/pages/*/index.js"]
+        },
+        "esModuleInterop": true,  // Ensures compatibility with default imports
+        "skipLibCheck": true,  // Skip checking of declaration files (helpful for ignoring some errors)
+        "resolveJsonModule": true
     },
     "include": ["src/app/**/*"]
 }

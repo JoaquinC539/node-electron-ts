@@ -6,7 +6,7 @@ const createDir = (relPath) => {
         fs.mkdirSync(relPath);
     }
 }
-const transferFiles = (from, to) => {
+const transferFilesAndParsing = (from, to) => {
     createDir(to);
     if (!fs.existsSync(from)) {
         console.log("Error it doesnt exists said relative source path directory")
@@ -35,13 +35,13 @@ const transferFiles = (from, to) => {
             fs.copyFileSync(spf, dpf);
         } else {
 
-            return transferFiles("./" + from + "/" + file, "./" + to + "/" + file + "/")
+            return transferFilesAndParsing("./" + from + "/" + file, "./" + to + "/" + file + "/")
         }
     })
 }
 try {
     console.log("Copying and parsing html")
-    transferFiles("./src", "./out");
+    transferFilesAndParsing("./src", "./out");
     console.log("ts building ts node")
     execSync("tsc --project tsconfig.node.json", { stdio: "inherit" });
     console.log("ts building ts app")

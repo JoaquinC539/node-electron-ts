@@ -1,21 +1,36 @@
 
 import content from './home.html'
-class HomePage extends HTMLElement {
-    constructor() {
-        super();
+import { BasePage } from '../abstract/BasePage';
+import "./home.css"
+export class HomePage extends BasePage{
+    protected fetchedData:any;
+    protected getTemplate(): string {
+        return content;
     }
-    async connectedCallback() {
-        this.innerHTML=content;
-
-        this.run();
+    protected async fetchData(): Promise<void> {
+        const response=await fetch("https://reqres.in/api/users?page=2")
+        const data=await response.json();
+        this.fetchedData=data
+        console.log(this.fetchedData)
     }
-    private run() {
-        // console.log(template)
-        const element = document.getElementById("texttoModify")
-        if (element !== null) {
-            element!.innerHTML = "Text modifief in script";
+    protected async asyncInitialize(): Promise<void> {
+        await this.fetchData();
+    }
+    protected script(): void {
+        // this.fetchData();        
+        const button=this.querySelector("#myButton");
+        button?.addEventListener("click",()=>{
+            console.log("button clicked")
+        })
+        const element = document.getElementById("texttoModify");
+        if (element) {            
+            element.innerHTML = "Text modified in script";
         }
     }
+        
 }
-customElements.define("home-page", HomePage);
+
+export default customElements.define("home-page", HomePage)  ;
+
+
 
