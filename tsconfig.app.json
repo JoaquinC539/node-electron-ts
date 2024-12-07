@@ -2,7 +2,9 @@
     "extends":"./tsconfig.base.json",
     "compilerOptions": {
         "module": "ESNext",
-        "outDir": "./out/app"
+        "outDir": "./out/app",
+        "allowJs": true,
+        "moduleResolution": "node"
     },
     "include": ["src/app/**/*"]
 }

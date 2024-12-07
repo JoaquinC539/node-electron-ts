@@ -1,1 +1,0 @@
-console.log("Log in modular ts/js")

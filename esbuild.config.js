@@ -2,6 +2,7 @@ const path=require("path");
 const fs=require("fs")
 const esbuild=require("esbuild");
 const cheerio=require("cheerio")
+// const htmlPlugin=require("esbuild-plugin-html");
 
 
 const createDir=(relPath)=>{
@@ -26,6 +27,14 @@ const transferFiles=(from,to)=>{
         if(file.endsWith(".ts")){
             return;
         }
+        if(file.endsWith(".html") && file!=="index.html"){
+            const htmlContent=fs.readFileSync(spf,"utf-8");
+            const jsContent=`export default \`${htmlContent}\`;`;
+            // const jsContent=`export const template = \`${htmlContent}\`;`;
+            const jsFilePath=dpf.replace(/\.html$/,".js");
+            fs.writeFileSync(jsFilePath,jsContent,"utf-8");
+            return;
+        }
         
         if(!fs.lstatSync(spf).isDirectory()){
             fs.copyFileSync(spf,dpf);
@@ -43,7 +52,8 @@ const bundleRender=esbuild.build({
     platform:"browser",
     target:"es2020",
     sourcemap:false,
-    minify:true,    
+    minify:true,  
+    // plugins:[htmlPlugin({exclude: /node_modules/})]  
 });
 
 const bundleMain=esbuild.build({
