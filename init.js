@@ -39,6 +39,30 @@ const transferFilesAndParsing = (from, to) => {
         }
     })
 }
+function transferFilesAndIndex(from, to){
+    createDir(to);
+    if (!fs.existsSync(from)) {
+        console.log("Error it doesnt exists said relative source path directory")
+        return;
+    }
+    const sp = path.join(__dirname, from);
+    const dirPath = path.join(__dirname, to);
+    const files = fs.readdirSync(sp);
+    files.forEach((file)=>{
+        const spf = path.join(sp, file);
+        const dpf = path.join(dirPath, file);
+        console.log(file)
+        console.log(file.endsWith(".html") && file!=="index.html")
+        if (file.endsWith(".ts") || file.endsWith(".js") || (file.endsWith(".html") && file!=="index.html")) {
+            return;
+        }
+        if (!fs.lstatSync(spf).isDirectory()) {
+            fs.copyFileSync(spf, dpf);
+        }else{
+            return transferFilesAndIndex(`./${from}/${file}`,`./${to}/${file}/`)
+        } 
+    })
+}
 try {
     console.log("Copying and parsing html")
     transferFilesAndParsing("./src", "./out");
@@ -48,6 +72,7 @@ try {
     execSync("tsc --project tsconfig.app.json", { stdio: "inherit" });
     console.log("Bundling...")
     execSync("node esbuild.config.js")
+    transferFilesAndIndex("./out/app", "./build/app")
 
     console.log("Build completed")
 } catch (error) {

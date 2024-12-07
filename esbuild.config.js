@@ -26,7 +26,7 @@ const htmlPlugin = {
 // Bundle the browser (renderer process)
 const bundleRender=esbuild.build({
     entryPoints:["out/app/index.js"],
-    outfile:'out/app/bundle.js',
+    outfile:'build/app/bundle.js',
     bundle:true,
     platform:"browser",
     target:"es2020",
@@ -39,7 +39,7 @@ const bundleRender=esbuild.build({
 
 const bundleMain=esbuild.build({
     entryPoints:["out/node/index.js"],
-    outfile:"out/node/index.bundle.js",
+    outfile:"build/node/index.bundle.js",
     bundle:true,
     platform:"node",
     target:"node18",
