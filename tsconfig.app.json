@@ -4,7 +4,7 @@
         "module": "ESNext",
         "outDir": "./out/app",
         "allowJs": true,
-        "moduleResolution": "bundler"
+        "moduleResolution": "node"
     },
     "include": ["src/app/**/*"]
 }

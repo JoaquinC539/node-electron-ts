@@ -1,11 +1,11 @@
 
-import template from "./home"
+import content from './home'
 class HomePage extends HTMLElement {
     constructor() {
         super();
     }
     async connectedCallback() {
-        this.innerHTML=template;
+        this.innerHTML=content;
 
         this.run();
     }

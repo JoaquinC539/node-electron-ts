@@ -69,7 +69,7 @@ const bundleMain=esbuild.build({
 
 Promise.all([bundleRender,bundleMain])
 .then(()=>{
-    transferFiles("./src","./out")
+    // transferFiles("./src","./out")
     console.log("Build complete.");
 })
 .catch(()=>process.exit(1))

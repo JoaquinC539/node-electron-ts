@@ -4,7 +4,8 @@
   "description": "electron basic usage",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build:node && npm run build:app && node esbuild.config.js",
+    "build": "node init.js",
+    "build3": "node init.js && npm run build:node && npm run build:app && node esbuild.config.js",
     "build:node": "tsc --project tsconfig.node.json",
     "build:app": "tsc --project tsconfig.app.json",
     "build2": "tsc && node esbuild.config.js",
