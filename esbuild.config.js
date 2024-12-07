@@ -33,8 +33,7 @@ const bundleRender=esbuild.build({
     sourcemap:false,
     minify:true,  
     plugins:[htmlPlugin],
-    
-      
+    loader: { '.css': 'css' },
 });
 
 const bundleMain=esbuild.build({

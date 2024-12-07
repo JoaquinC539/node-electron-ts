@@ -1,5 +1,5 @@
-import { checkInitialRoute,setAnchorElements,renderRoute } from "./router";
-
+import { checkInitialRoute,renderRoute } from "./router";
+import "./app.css"
 
 document.addEventListener("DOMContentLoaded", () => {
     const currentroute = checkInitialRoute();

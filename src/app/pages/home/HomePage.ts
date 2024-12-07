@@ -1,7 +1,6 @@
 
 import content from './home.html'
 import { BasePage } from '../abstract/BasePage';
-import "./home.css"
 export class HomePage extends BasePage{
     protected fetchedData:any;
     protected getTemplate(): string {

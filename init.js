@@ -27,7 +27,7 @@ const transferFilesAndParsing = (from, to) => {
             // const jsContent=`export const template = \`${htmlContent}\`;`;
             const jsFilePath = dpf.replace(/\.html$/, ".js");
             fs.writeFileSync(jsFilePath, jsContent, "utf-8");
-            fs.copyFileSync(spf,dpf);
+            fs.copyFileSync(spf, dpf);
             return;
         }
 
@@ -39,7 +39,7 @@ const transferFilesAndParsing = (from, to) => {
         }
     })
 }
-function transferFilesAndIndex(from, to){
+function transferPublicAndIndex(from, to, isRoot = true) {
     createDir(to);
     if (!fs.existsSync(from)) {
         console.log("Error it doesnt exists said relative source path directory")
@@ -48,19 +48,28 @@ function transferFilesAndIndex(from, to){
     const sp = path.join(__dirname, from);
     const dirPath = path.join(__dirname, to);
     const files = fs.readdirSync(sp);
-    files.forEach((file)=>{
+
+    files.forEach((file) => {
         const spf = path.join(sp, file);
         const dpf = path.join(dirPath, file);
-        console.log(file)
-        console.log(file.endsWith(".html") && file!=="index.html")
-        if (file.endsWith(".ts") || file.endsWith(".js") || (file.endsWith(".html") && file!=="index.html")) {
+
+        if (isRoot && file === "index.html") {
+            fs.copyFileSync(spf, dpf);
             return;
         }
-        if (!fs.lstatSync(spf).isDirectory()) {
+        if(isRoot && !(file.endsWith(".ts") || file.endsWith(".js") || file.endsWith(".html") || file.endsWith(".css")) && !fs.lstatSync(spf).isDirectory()){            
             fs.copyFileSync(spf, dpf);
-        }else{
-            return transferFilesAndIndex(`./${from}/${file}`,`./${to}/${file}/`)
-        } 
+        }
+        if (isRoot && file === "public" && fs.lstatSync(spf).isDirectory()) {
+            return transferPublicAndIndex(`./${from}/${file}`, `./${to}/${file}/`, false)
+        }
+        if (!isRoot) {
+            if (!fs.lstatSync(spf).isDirectory()) {
+                fs.copyFileSync(spf, dpf);
+            } else {
+                return transferPublicAndIndex(`./${from}/${file}`, `./${to}/${file}/`, false)
+            }
+        }
     })
 }
 try {
@@ -72,7 +81,7 @@ try {
     execSync("tsc --project tsconfig.app.json", { stdio: "inherit" });
     console.log("Bundling...")
     execSync("node esbuild.config.js")
-    transferFilesAndIndex("./out/app", "./build/app")
+    transferPublicAndIndex("./out/app", "./build/app")
 
     console.log("Build completed")
 } catch (error) {
